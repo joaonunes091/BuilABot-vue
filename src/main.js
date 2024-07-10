@@ -1,4 +1,11 @@
+/* eslint-disable newline-per-chained-call */
+/* eslint-disable import/no-extraneous-dependencies */
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import App from './App.vue';
+import router from './router';
+import pinDirective from './shared/pin-directive';
 
-createApp(App).mount('#app');
+const pinia = createPinia();
+
+createApp(App).use(router).use(pinia).directive('pin', pinDirective).mount('#app');
